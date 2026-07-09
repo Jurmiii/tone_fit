@@ -1,0 +1,300 @@
+@charset "utf-8";
+
+/* =========================================
+   Base Styles (기본 레이아웃 설정)
+========================================= */
+body {
+   line-height: 1.5;
+   color: #4C4948;
+   /* 기본 텍스트 컬러 */
+   background-color: #FFFFFF;
+}
+
+/* =========================================
+   Color Classes (텍스트 & 배경 유틸리티)
+========================================= */
+/* 1. Text Colors (폰트 컬러용) */
+.color-main {
+   color: #4C4948;
+}
+
+.color-point {
+   color: #1E2022;
+}
+
+.color-orange {
+   color: #D4734A;
+}
+
+/* 2. Background Colors (배경 컬러용) */
+.bg-light-gray {
+   background-color: #F6F6F6;
+}
+
+.bg-deep-base {
+   background-color: #1E2022;
+}
+
+.bg-warm-white {
+   background-color: #F8F5F0;
+}
+
+.bg-point-orange {
+   background-color: #D4734A;
+}
+
+.bg-sub-orange {
+   background-color: #BC8F76;
+}
+
+/* =========================================
+   Layout & Grid System (PC 기준 1440px)
+========================================= */
+:root {
+   --page-gutter-x: 0;
+}
+
+.inner {
+   max-width: 1440px;
+   width: 100%;
+   margin: 0 auto;
+   min-width: 0;
+   box-sizing: border-box;
+   padding-left: var(--page-gutter-x);
+   padding-right: var(--page-gutter-x);
+}
+
+.grid-wrap {
+   display: grid;
+   grid-template-columns: repeat(12, 1fr);
+   /* 12단 그리드 */
+   gap: 24px;
+}
+
+/* =========================================
+   Layout & Flex Classes (레이아웃 & 정렬)
+========================================= */
+.d-flex {
+   display: flex;
+}
+
+.flex-col {
+   flex-direction: column;
+}
+
+/* 주축 정렬 (Justify Content) */
+.jc-start {
+   justify-content: flex-start;
+}
+
+.jc-center {
+   justify-content: center;
+}
+
+.jc-end {
+   justify-content: flex-end;
+}
+
+.jc-between {
+   justify-content: space-between;
+}
+
+/* 교차축 정렬 (Align Items) */
+.ai-start {
+   align-items: flex-start;
+}
+
+.ai-center {
+   align-items: center;
+}
+
+.ai-end {
+   align-items: flex-end;
+}
+
+/* =========================================
+   Gap Classes (Flex/Grid 간격 유틸리티)
+========================================= */
+.gap-100 {
+   gap: 6.25rem;
+}
+
+/* 100px */
+.gap-80 {
+   gap: 5rem;
+}
+
+/* 80px */
+.gap-50 {
+   gap: 3.125rem;
+}
+
+/* 50px */
+.gap-20 {
+   gap: 1.25rem;
+}
+
+/* 20px */
+.gap-40 {
+   gap: 2.5rem;
+}
+
+/* 40px */
+
+/* =========================================
+   Margin & Text Align (여백 및 정렬 유틸리티)
+========================================= */
+.mt-10 {
+   margin-top: 0.625rem;
+}
+
+.mb-10 {
+   margin-bottom: 0.625rem;
+}
+
+.mb-20 {
+   margin-bottom: 1.25rem;
+}
+
+.mb-40 {
+   margin-bottom: 2.5rem;
+}
+
+.mb-80 {
+   margin-bottom: 5rem;
+}
+
+.text-center {
+   text-align: center;
+}
+
+/* =========================================
+   Line break · word-break: keep-all
+========================================= */
+.break-keep-all-wrap {
+   word-break: keep-all;
+   overflow-wrap: break-word;
+}
+
+/* PC·태블릿: 모바일 전용 줄바꿈 숨김 */
+br.mo-only,
+.break-mo-only {
+   display: none;
+}
+
+@media screen and (max-width: 768px) {
+
+   br.pc-only,
+   .break-pc-only {
+      display: none;
+   }
+
+   br.mo-only,
+   .break-mo-only {
+      display: block;
+   }
+}
+
+/* =========================================
+   Spacing Classes (섹션 내부 여백)
+========================================= */
+.py-130 {
+   padding-top: 8.125rem;
+   padding-bottom: 8.125rem;
+}
+
+
+
+
+/* PC: 숨김 · 1024px 이하에서만 지정 줄바꿈 */
+.br-resp {
+   display: none;
+}
+
+/* =========================================
+   Responsive Layout System (반응형 레이아웃)
+========================================= */
+
+/* 노트북 (1440px 이하) */
+@media screen and (max-width: 1440px) {
+   :root {
+      --page-gutter-x: 64px;
+   }
+}
+
+/* 태블릿 (1024px 이하) */
+@media screen and (max-width: 1024px) {
+   :root {
+      --page-gutter-x: 64px;
+   }
+
+   .grid-wrap {
+      grid-template-columns: repeat(8, 1fr);
+      /* 8단 그리드 변환 */
+      gap: 24px;
+      /* 피그마 Gutter: 24 반영 */
+   }
+
+   .py-130 {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+   }
+
+   .mb-80 {
+      margin-bottom: 3.75rem;
+   }
+
+   .br-none {
+      display: none;
+   }
+
+   .br-resp {
+      display: inline;
+   }
+}
+
+/* 태블릿 (768px 이하) — 좌우 최소 여백 64px 유지 */
+@media screen and (max-width: 768px) {
+   :root {
+      --page-gutter-x: 32px;
+   }
+
+   .grid-wrap {
+      grid-template-columns: repeat(6, 1fr);
+      /* 모바일 6단 그리드 변환 */
+      gap: 16px;
+      /* 모바일 Gutter: 16 반영 */
+   }
+
+   .py-130 {
+      padding-top: 3.75rem;
+      padding-bottom: 3.75rem;
+   }
+
+   .mb-80 {
+      margin-bottom: 2.5rem;
+   }
+
+   .br-none {
+      display: none;
+   }
+}
+
+/* 모바일 (402px 이하) */
+@media screen and (max-width: 402px) {
+   :root {
+      --page-gutter-x: 16px;
+   }
+
+   .mb-80 {
+      margin-bottom: 2rem;
+   }
+
+   .gap-20 {
+      gap: 0.625rem;
+   }
+
+   .br-none {
+      display: none;
+   }
+}

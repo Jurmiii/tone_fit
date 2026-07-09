@@ -1,0 +1,527 @@
+/* =========================================
+   Space Concept Page (space.html)
+   rem 기준: root 16px — 타이포·여백 rem, 고정 그리드·갤러리 px 유지
+========================================= */
+
+/* 상단 KV 없음 — 고정 헤더 높이만큼 본문 여백 */
+.space-page .space-main {
+    padding-top: calc(1rem + 3.25rem + 1rem);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+/* 라이트 배경 페이지: 기본 흰 헤더 (KV 투명 효과 미적용) */
+.space-page .header {
+    background-color: #FFFFFF;
+    color: #4C4948;
+}
+
+.space-page .header.is-scrolled,
+.space-page .header.is-mega-open {
+    background-color: #FFFFFF;
+    color: #4C4948;
+}
+
+.space-concept-head {
+    width: 100%;
+    text-align: center;
+}
+
+/* .title .color-main — 3rem / 800 / 3.875rem · 하단 여백 1.25rem */
+.space-main-title {
+    margin: 0 0 1.25rem;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 3.875rem;
+}
+
+/* [레거시 보관] 탭 버튼 비주얼 — 최하단 TAB BAR UNIFIED 블록 참고 */
+/*
+.space-tab-bar .tab-btn {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0.5rem 2.5rem;
+    line-height: 2rem;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(51, 52, 70, 0.1);
+    border-radius: 3.125rem;
+    cursor: pointer;
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.space-tab-bar .tab-btn:hover:not(.active) {
+    box-shadow: 0px 0px 3px 0px #D4734A;
+}
+
+.space-tab-bar .tab-btn.active {
+    color: #FFFFFF;
+    background-color: #D4734A;
+    border: 1px solid rgba(51, 52, 70, 0.1);
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.space-tab-bar .tab-btn.active:hover {
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.space-tab-bar .tab-btn:focus,
+.space-tab-bar .tab-btn:focus-visible {
+    outline: none;
+}
+
+.space-tab-bar .tab-btn:focus-visible:not(.active) {
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.space-tab-bar .tab-btn.active:focus,
+.space-tab-bar .tab-btn.active:focus-visible {
+    color: #FFFFFF;
+    background-color: #D4734A;
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+*/
+
+.space-tab-panels {
+    width: 100%;
+    text-align: left;
+}
+
+.space-tab-panel {
+    display: none;
+}
+
+.space-tab-panel.is-active {
+    display: block;
+}
+
+/* .ft-32-b .color-main */
+.space-subtitle {
+    margin: 1.9375rem 0 0;
+    line-height: 2.75rem;
+    text-align: center;
+}
+
+/* .ft-20-r .color-main — 제목 하단 간격 0.625rem */
+.space-caption {
+    margin: 0.625rem 0 0;
+    line-height: 2rem;
+    text-align: center;
+}
+
+/* 90rem 갤러리 · 662×583 · 0.75rem 바둑판 — 특수 규격 */
+.space-gallery {
+    display: grid;
+    grid-template-columns: 662px 766px;
+    column-gap: 0.75rem;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0.625rem 0 0;
+}
+
+.space-gallery__main {
+    margin: 0;
+}
+
+.space-gallery__main img {
+    display: block;
+    width: 662px;
+    height: 583px;
+}
+
+.space-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(2, calc((766px - 12px) / 2));
+    grid-template-rows: repeat(2, calc((583px - 12px) / 2));
+    gap: 0.75rem;
+    width: 766px;
+    height: 583px;
+}
+
+.space-gallery__item {
+    margin: 0;
+    overflow: hidden;
+}
+
+.space-gallery__item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================================
+   Responsive (Space Page) · 1024 / 768 / 402
+   - common.css · font.css · smart-kiosk.css 패턴 참고
+   - .space-page 스코프만
+========================================= */
+
+/* 노트북 (90rem 이하 · 갤러리 fluid) */
+@media screen and (max-width: 1440px) {
+    .space-page .inner {
+        max-width: none;
+        width: 100%;
+    }
+
+    .space-page .py-130 {
+        padding-top: 6.25rem;
+        padding-bottom: 6.25rem;
+    }
+
+    .space-page .space-subtitle {
+        line-height: 2.5rem;
+    }
+
+    .space-page .space-caption {
+        line-height: 1.75rem;
+    }
+
+    /* 662 : 766 비율 유지 · 0.75rem 갭 고정 */
+    .space-page .space-gallery {
+        display: grid;
+        grid-template-columns: minmax(0, 662fr) minmax(0, 766fr);
+        column-gap: 0.75rem;
+        max-width: 100%;
+    }
+
+    .space-page .space-gallery__main img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 662 / 583;
+    }
+
+    .space-page .space-gallery__grid {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        aspect-ratio: 766 / 583;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+}
+
+/* 태블릿 (1024px 이하) — common .inner · --page-gutter-x 64px · grid-wrap 8단 gap 24px */
+@media screen and (max-width: 1024px) {
+    .space-page .inner {
+        max-width: none;
+        width: 100%;
+    }
+
+    .space-page .py-130 {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    .space-page .space-main-title {
+        font-size: 2.25rem;
+        line-height: 2.75rem;
+    }
+
+    .space-page .space-subtitle {
+        line-height: 2.5rem;
+    }
+
+    .space-page .space-caption {
+        line-height: 1.75rem;
+    }
+
+    .space-page .space-tab-bar {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .space-page .space-tab-bar .tab-btn {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: auto;
+        overflow: hidden;
+        text-align: center;
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    /* 메인 이미지 상단 · 2×2 바둑판 하단 */
+    .space-page .space-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        max-width: 100%;
+    }
+
+    .space-page .space-gallery__main {
+        width: 100%;
+    }
+
+    .space-page .space-gallery__main img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 662 / 583;
+    }
+
+    .space-page .space-gallery__grid {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 766 / 583;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+}
+
+/* 모바일 (768px 이하) — 좌우 64px 유지(common) · font 768 스케일 */
+@media screen and (max-width: 768px) {
+    .space-page .inner {
+        max-width: none;
+        width: 100%;
+    }
+
+    .space-page .py-130 {
+        padding-top: 3.75rem;
+        padding-bottom: 3.75rem;
+    }
+
+    .space-page .space-main-title {
+        font-size: 1.75rem;
+        line-height: 2.125rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .space-page .space-subtitle {
+        margin-top: 1.25rem;
+        line-height: 1.875rem;
+    }
+
+    .space-page .space-caption {
+        margin-top: 0.625rem;
+        line-height: 1.5rem;
+    }
+
+    .space-page .space-tab-bar {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.5rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .space-page .space-tab-bar .tab-btn {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: auto;
+        overflow: hidden;
+        text-align: center;
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    /* 1단 수직 스크롤 · 갭 0.75rem 유지 */
+    .space-page .space-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .space-page .space-gallery__main {
+        width: 100%;
+    }
+
+    .space-page .space-gallery__main img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 662 / 583;
+    }
+
+    .space-page .space-gallery__grid {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+        gap: 0.75rem;
+    }
+
+    .space-page .space-gallery__item {
+        width: 100%;
+        aspect-ratio: 662 / 583;
+    }
+
+    .space-page .space-gallery__item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/* 태블릿·노트북 (403px ~ 1440px) — common grid gutter 64px */
+@media screen and (min-width: 403px) and (max-width: 1440px) {
+    .space-page .space-main .inner {
+        padding-left: var(--page-gutter-x, 64px);
+        padding-right: var(--page-gutter-x, 64px);
+        box-sizing: border-box;
+    }
+}
+
+/* 소형 모바일 (402px 이하) — common --page-gutter-x 16px · font.css 402 스케일 */
+@media screen and (max-width: 402px) {
+    .space-page .space-main .inner {
+        padding-left: var(--page-gutter-x, 16px);
+        padding-right: var(--page-gutter-x, 16px);
+    }
+
+    .space-page .py-130 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .space-page .space-main-title {
+        font-size: 1.75rem;
+        line-height: 2.125rem;
+        margin-bottom: 1rem;
+    }
+
+    .space-page .space-subtitle {
+        margin-top: 1rem;
+        line-height: 1.75rem;
+    }
+
+    .space-page .space-caption {
+        line-height: 1.5rem;
+    }
+
+    .space-page .space-tab-bar {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.375rem;
+    }
+
+    .space-page .space-gallery {
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+    }
+
+    .space-page .space-gallery__grid {
+        gap: 0.5rem;
+    }
+}
+
+/* =========================================
+   Enter Animation (Fade-Up · 첫 진입)
+   - 아이템 A: .space-enter-copy
+   - 아이템 B: .space-enter-gallery (0.25s 지연은 space.js)
+========================================= */
+
+.space-enter-copy,
+.space-enter-gallery {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.space-enter-copy.is-enter-active,
+.space-enter-gallery.is-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 비활성 탭 패널 — 대기 상태(opacity:0) 미적용 */
+.space-tab-panel:not(.is-active) .space-enter-copy,
+.space-tab-panel:not(.is-active) .space-enter-gallery {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .space-enter-copy,
+    .space-enter-gallery {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        will-change: auto;
+    }
+}
+
+/* =========================================
+   TAB BAR UNIFIED — Space Figma baseline (Space)
+   · 비주얼·호버·active: 3페이지 공통
+   · 상단 MQ: grid 레이아웃 · 패딩/폰트 가변 축 유지
+========================================= */
+
+.space-page .space-tab-bar .tab-btn {
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: clamp(0.25rem, 0.125rem + 0.4vw, 0.5rem) clamp(0.375rem, 0.125rem + 1.75vw, 2.5rem);
+    letter-spacing: 0;
+    font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); /* 11px ~ 20px · ft-20-r fluid */
+    font-weight: 400;
+    line-height: 1.4;
+    background-color: #FFFFFF;
+    color: #D4734A;
+    border: 1px solid rgba(51, 52, 70, 0.1);
+    border-radius: 3.125rem;
+    cursor: pointer;
+    box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    overflow: hidden;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.space-page .space-tab-bar .tab-btn:hover:not(.active) {
+    background-color: #FFFFFF;
+    color: #D4734A;
+    border: 1px solid rgba(51, 52, 70, 0.1);
+    box-shadow: 0 0 3px 0 #D4734A;
+}
+
+.space-page .space-tab-bar .tab-btn.active,
+.space-page .space-tab-bar .tab-btn.active:hover {
+    color: #FFFFFF;
+    background-color: #D4734A;
+    border: 1px solid rgba(51, 52, 70, 0.1);
+    border-radius: 3.125rem;
+    box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.space-page .space-tab-bar .tab-btn:focus,
+.space-page .space-tab-bar .tab-btn:focus-visible {
+    outline: none;
+}
+
+.space-page .space-tab-bar .tab-btn:focus-visible:not(.active) {
+    box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.space-page .space-tab-bar .tab-btn.active:focus,
+.space-page .space-tab-bar .tab-btn.active:focus-visible {
+    color: #FFFFFF;
+    background-color: #D4734A;
+    box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 1024px) {
+    .space-page .space-tab-bar .tab-btn {
+        width: 100%;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+}

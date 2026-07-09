@@ -1,0 +1,553 @@
+/* =========================================
+   TONE:FIT Store Page Styles (store.css)
+========================================= */
+
+/* =========================================
+   1. PAGE LAYOUT
+========================================= */
+
+.store-main {
+    padding-top: 5.25rem; /* 헤더 높이만큼 오프셋 */
+}
+
+/* store 페이지 전체 word-break 설정 */
+.page-store {
+    word-break: keep-all;
+}
+
+/* store 페이지는 히어로 없이 흰 배경이므로 헤더 항상 고정 스타일 적용 */
+.page-store .header {
+    background-color: #fff !important;
+    color: #4C4948 !important;
+}
+/* =========================================
+   2. PAGE TITLE SECTION
+========================================= */
+
+.store-title-section {
+    padding: 8.125rem 0 5rem 0;  /* 130px 0 80px 0 */
+    text-align: center;
+}
+
+.store-page-title {
+    color: #1E2022;
+    font-family: 'jalnan gothic ttf', sans-serif;
+}
+
+/* =========================================
+   3. MAP SECTION
+   1025px 이상: 좌측 검색·목록 + 우측 지도 (1440px × 546px)
+   1024px 이하: 상단 지도 + 하단 검색·목록
+========================================= */
+
+.store-map-section {
+    padding: 0 0 5rem; /* 타이틀과 80px, 아코디언과 80px 간격 유지 */
+}
+
+.store-map-wrap {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: var(--page-gutter-x, 0);
+    padding-right: var(--page-gutter-x, 0);
+    box-sizing: border-box;
+}
+
+.store-map-layout {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1440px;
+    height: 34.125rem; /* 546px */
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+}
+
+.store-sidebar {
+    flex: 0 0 29rem; /* 464px — 4컬럼 */
+    width: 29rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+}
+
+.store-search-wrap {
+    flex-shrink: 0;
+    padding: 1.25rem 0.9375rem; /* 20px 15px */
+}
+
+.store-search-field {
+    position: relative;
+    width: 100%;
+}
+
+.store-search-field::before {
+    content: '';
+    position: absolute;
+    left: 0.9375rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    background: url('../images/icon/store-search.svg') no-repeat center / contain;
+    pointer-events: none;
+}
+
+.store-search-input {
+    width: 100%;
+    height: 3rem;
+    padding: 0 1rem 0 2.625rem;
+    border: 1.5px solid #D4734A;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #4C4948;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.store-search-input::placeholder {
+    color: #4C4948;
+    opacity: 0.55;
+}
+
+.store-search-input:hover {
+    border-color: #BC8F76;
+}
+
+.store-search-input:focus {
+    outline: none;
+    border-color: #D4734A;
+    box-shadow: 0 0 0 3px rgba(212, 115, 74, 0.15);
+}
+
+.store-search-input:focus-visible {
+    outline: 2px solid #D4734A;
+    outline-offset: 2px;
+}
+
+.store-sidebar-list {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #D9D9D9 transparent;
+}
+
+.store-sidebar-list[hidden] {
+    display: none;
+}
+
+.store-sidebar-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.store-sidebar-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.store-sidebar-list::-webkit-scrollbar-thumb {
+    background-color: #D9D9D9;
+    border-radius: 4px;
+}
+
+.store-item {
+    padding: 1.25rem 0.9375rem; /* 20px 15px */
+    background-color: #FFFFFF;
+    border: none;
+    border-bottom: 1px solid #D9D9D9;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+}
+
+.store-item:last-child {
+    border-bottom: none;
+}
+
+.store-item:hover:not(.is-active) {
+    background-color: #FAFAFA;
+}
+
+.store-item.is-active {
+    background-color: #F6F6F6;
+}
+
+.store-item-name {
+    display: block;
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+    color: #1E2022;
+    line-height: 1.5;
+    margin-bottom: 0.375rem;
+}
+
+.store-item-address {
+    display: block;
+    font-size: 1.125rem; /* 18px */
+    font-weight: 400;
+    color: #4C4948;
+    line-height: 1.55;
+}
+
+.store-search-empty {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0.9375rem;
+    text-align: center;
+    margin: 0;
+}
+
+.store-search-empty[hidden] {
+    display: none;
+}
+
+#map-container {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    background-color: #E8E8E8;
+    overflow: hidden;
+    border-radius: 0 10px 10px 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =========================================
+   4. STORE LIST SECTION
+========================================= */
+
+.store-list-section {
+    padding: 0 0 8.125rem;
+}
+
+.store-list-wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: var(--page-gutter-x, 0);
+    padding-right: var(--page-gutter-x, 0);
+    box-sizing: border-box;
+}
+
+/* 매장 현황 헤더 */
+.store-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 0 2.5rem 0;      /* 0 0 40px 0 */
+    border-bottom: 1px solid #4C4948;
+    margin-bottom: 0;
+}
+
+.store-list-title {
+    color: #1E2022;
+}
+
+.store-list-count {
+    color: #4C4948;
+}
+
+/* =========================================
+   5. ACCORDION ITEM
+========================================= */
+
+.store-accordion-item {
+    border-bottom: 1px solid #D9D9D9;
+    scroll-margin-top: 5.25rem; /* 고정 헤더 높이 — 열림 시 스크롤 여백 */
+}
+
+.store-accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 1.25rem;    /* 40px 20px */
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    gap: 0.625rem;              /* 10px */
+    transition: background-color 0.2s ease;
+}
+
+.store-accordion-trigger:hover {
+    background-color: #FAFAFA;
+}
+
+.store-accordion-trigger:focus-visible {
+    outline: 2px solid #D4734A;
+    outline-offset: 2px;
+}
+
+/* 매장명 */
+.store-name {
+    flex-shrink: 0;
+    min-width: 10rem;
+}
+
+/* 기본 주소 (닫힌 상태에서 오른쪽에 표시) */
+.store-address-preview {
+    text-align: right;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: opacity 0.2s ease;
+}
+
+/* 열린 상태에서 주소 미리보기 숨김 */
+.store-accordion-item.is-open .store-address-preview {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 화살표 아이콘 */
+.store-accordion-icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    color: #4C4948;
+}
+
+.store-accordion-icon svg {
+    width: 1rem;
+    height: 1rem;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.store-accordion-item.is-open .store-accordion-icon {
+    transform: rotate(180deg);
+    color: #D4734A;
+}
+
+/* =========================================
+   6. ACCORDION PANEL (상세 정보)
+========================================= */
+
+.store-accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.3s ease;
+}
+
+.store-accordion-item.is-open .store-accordion-panel {
+    max-height: 60rem; /* 콘텐츠가 1컬럼으로 늘어나는 모바일 대응 */
+}
+
+.store-detail {
+    padding: 2.5rem 1.25rem;    /* 40px 20px */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;                /* 24px */
+}
+
+/* 상세 정보 각 항목 */
+.store-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.store-detail-label {
+    font-weight: 600;
+    color: #D4734A;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.store-detail-value {
+    line-height: 1.5;
+}
+
+/* 지도 링크 버튼 */
+.store-map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-weight: 600;
+    color: #D4734A;
+    text-decoration: none;
+    margin-top: 0.25rem;
+    transition: opacity 0.2s ease;
+}
+
+.store-map-link:hover {
+    opacity: 0.75;
+}
+
+.store-map-link svg {
+    width: 1em;                 /* 텍스트 폰트 사이즈와 동일한 크기 (20px) */
+    height: 1em;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   7. FOOTER (기존 footer 스타일 보완)
+========================================= */
+
+/* store 페이지 전용 footer 여백 없음 — 기존 footer 그대로 사용 */
+
+/* =========================================
+   8. RESPONSIVE
+========================================= */
+
+@media (max-width: 1024px) {
+    /* 태블릿 — common .inner · --page-gutter-x 64px · grid-wrap 8단 gap 24px */
+    .page-store .inner,
+    .store-map-wrap,
+    .store-list-wrap {
+        padding-left: var(--page-gutter-x, 64px);
+        padding-right: var(--page-gutter-x, 64px);
+        box-sizing: border-box;
+    }
+
+    .store-map-layout {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #map-container {
+        order: -1;
+        flex: none;
+        width: 100%;
+        height: 25rem;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .store-sidebar {
+        flex: none;
+        width: 100%;
+        height: auto;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .store-sidebar-list {
+        max-height: 18rem;
+    }
+
+    .store-detail {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .store-main {
+        padding-top: 4rem;
+    }
+
+    .store-title-section {
+        padding: 5rem 0 3.75rem;
+    }
+
+    .page-store .inner,
+    .store-map-wrap,
+    .store-list-wrap {
+        padding-left: var(--page-gutter-x, 64px);
+        padding-right: var(--page-gutter-x, 64px);
+    }
+
+    #map-container {
+        height: 18.75rem;
+    }
+
+    .store-sidebar-list {
+        max-height: 16rem;
+    }
+
+    .store-item-name {
+        font-size: 1.125rem;
+    }
+
+    .store-item-address {
+        font-size: 1rem;
+    }
+
+    .store-list-title {
+        font-size: 1.5rem;      /* 32px → 24px */
+    }
+
+    .store-list-count {
+        font-size: 1rem;        /* 20px → 16px */
+    }
+
+    .store-name {
+        font-size: 1.25rem;     /* 28px → 20px */
+        min-width: 7rem;
+    }
+
+    .store-address-preview {
+        font-size: 0.9375rem;   /* 20px → 15px */
+        display: none;          /* 768px 이하 주소 숨김 */
+    }
+
+    .store-detail-value {
+        font-size: 1rem;        /* 20px → 16px */
+    }
+
+    .store-detail {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .store-accordion-trigger {
+        padding: 1.25rem 1rem;  /* 모바일: 20px 16px */
+    }
+
+    .store-map-link {
+        font-size: 1rem;        /* 20px → 16px */
+    }
+}
+
+/* 노트북 (1025px ~ 1440px) — common grid gutter 64px */
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+    .page-store .inner,
+    .store-map-wrap,
+    .store-list-wrap {
+        padding-left: var(--page-gutter-x, 64px);
+        padding-right: var(--page-gutter-x, 64px);
+        box-sizing: border-box;
+    }
+}
+
+/* 소형 모바일 (402px 이하) — common --page-gutter-x 16px */
+@media screen and (max-width: 402px) {
+    .page-store .inner,
+    .store-map-wrap,
+    .store-list-wrap {
+        padding-left: var(--page-gutter-x, 16px);
+        padding-right: var(--page-gutter-x, 16px);
+    }
+}

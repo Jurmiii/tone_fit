@@ -1,0 +1,1913 @@
+/* =========================================
+   Startup Page (startup.html)
+   rem 기준: root 16px — 타이포·여백 rem · 폼·프로세스 유동 스케일 · 마키·KV 등 특수 px 유지
+========================================= */
+
+/* KV 풀블리드 — style.css 헤더(투명 → 스크롤 시 흰 배경) · common.js/main.js */
+.startup-page .startup-main {
+    padding-top: 0;
+}
+
+/* 스크롤·메가메뉴 시에만 흰 배경 (기본: style.css transparent + #fff 텍스트) */
+.startup-page .header.is-scrolled,
+.startup-page .header.is-mega-open {
+    background-color: #FFFFFF;
+    color: #4C4948;
+}
+
+/* KV — PC: 뷰포트 세로 채움(히어로와 동일) · 배경 · 오버레이 */
+.startup-kv-section {
+    position: relative;
+    box-sizing: border-box;
+    min-height: 48.75rem;
+    height: 100vh;
+    height: 100dvh;
+    background-image: url('../images/startup-kv.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.startup-kv-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.startup-kv-inner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    text-align: left;
+}
+
+.startup-kv-copy {
+    width: 100%;
+}
+
+/* .ft-54-b .title — #FFFFFF · 4.25rem line-height common 유틸 없음 */
+.startup-kv-title {
+    margin: 0;
+    line-height: 4.25rem;
+    color: #FFFFFF;
+}
+
+/* .ft-28-r .gap-20 — #FFFFFF · 2.5rem line-height common 유틸 없음 */
+.startup-kv-desc {
+    margin: 0;
+    line-height: 2.5rem;
+    color: #FFFFFF;
+}
+
+/* =========================================
+   Startup Feature Section (7:5 grid)
+========================================= */
+
+/* .py-130 .inner .grid-wrap */
+.startup-feature-section {
+    overflow: hidden;
+}
+
+.startup-feature-grid {
+    align-items: center;
+}
+
+/* 7그리드 · 동영상 828×470 — 플레이어 래퍼가 너비 기준으로 균일 축소 */
+.startup-feature-video-col {
+    grid-column: span 7;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    min-width: 0;
+    width: 100%;
+}
+
+.startup-feature-video-player {
+    width: 100%;
+    max-width: min(100%, 51.75rem);
+    min-width: 0;
+}
+
+.startup-feature-video {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+/* 5그리드 · 수직 중앙 */
+.startup-feature-text-col {
+    grid-column: span 5;
+}
+
+.startup-feature-copy {
+    width: 100%;
+    text-align: left;
+}
+
+/* .ft-32-b .title .color-main — line-height 2.75rem */
+.startup-feature-title {
+    margin: 0;
+    line-height: 2.75rem;
+    margin-left: clamp(0, 5vw, 6.25rem);
+}
+
+/* 타이틀 하단 ~ 1번 항목: 1.25rem */
+.startup-feature-list {
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+    margin-left: clamp(0, 5vw, 6.25rem);
+}
+
+/* .gap-20 — 항목 묶음 간 1.25rem */
+
+/* 항목 내 제목~캡션: 0.625rem — common gap 유틸 없음 */
+.startup-feature-item {
+    gap: 0.625rem;
+}
+
+/* .ft-28-r .color-main — line-height 2.5rem */
+.startup-feature-item-title {
+    margin: 0;
+    line-height: 2.5rem;
+}
+
+/* .ft-18-r .color-main — line-height 2rem */
+.startup-feature-item-desc {
+    margin: 0;
+    line-height: 2rem;
+}
+
+/* =========================================
+   Startup Growth Section (텍스트 + SVG · Overlay · Align Top)
+========================================= */
+
+/* .py-130 .inner */
+.startup-growth-section {
+    overflow-x: hidden;
+    --growth-graph-max-w: min(100%, 62.5rem);
+    --growth-graph-min-h: clamp(12rem, 38vw, 34.625rem);
+}
+
+/* 90rem 동일 영역 겹침 · Align Top */
+.startup-growth-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(var(--growth-graph-min-h), auto);
+    width: 100%;
+    max-width: 1440px;
+    min-width: 0;
+    position: relative;
+}
+
+.startup-growth-copy,
+.startup-growth-graphic {
+    grid-area: 1 / 1;
+    align-self: start;
+}
+
+/* z-index: 2 · 왼쪽 그리드 시작점 */
+.startup-growth-copy {
+    z-index: 2;
+    justify-self: start;
+    text-align: left;
+    max-width: 100%;
+}
+
+/* .title .color-main .ft-48-b — line-height 4.25rem */
+.startup-growth-title {
+    margin: 0;
+    line-height: 4.25rem;
+}
+
+/* '15만 건' → .color-orange (#D4734A) */
+
+/* 타이틀 하단 ~ 서브: 1.25rem */
+.startup-growth-desc {
+    margin: 1.25rem 0 0;
+    line-height: 2rem;
+}
+
+/* z-index: 1 · 오른쪽 그리드 끝선 (SVG 원본 1279×701 · 표시 ~88%) */
+.startup-growth-graphic {
+    position: relative;
+    z-index: 1;
+    justify-self: end;
+    width: min(100%, var(--growth-graph-max-w));
+    max-width: 100%;
+    min-width: 0;
+}
+
+.startup-growth-graphic img {
+    display: block;
+    width: 100%;
+    max-width: var(--growth-graph-max-w);
+    height: auto;
+}
+
+/* 말풍선 · 텍스트 부피 기반 가변 크기 */
+.startup-growth-bubble {
+    position: absolute;
+    top: 6.13%;
+    left: 55.12%;
+    z-index: 3;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
+.startup-growth-bubble-box {
+    display: inline-grid;
+    justify-items: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.startup-growth-bubble-shape {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: fill;
+    pointer-events: none;
+}
+
+.startup-growth-bubble-text {
+    grid-area: 1 / 1;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    width: auto;
+    max-width: none;
+    flex-shrink: 0;
+    padding: 0.35em 0.9em 0.65em;
+    /* font-family: 'Pretendard', sans-serif; — font.css body */
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+    text-align: center;
+    white-space: nowrap;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   Startup Profit Section (4th · Marquee)
+========================================= */
+
+/* .py-130 .inner */
+.startup-profit-section {
+    overflow: hidden;
+}
+
+.startup-profit-head {
+    text-align: left;
+}
+
+/* .ft-32-r .color-main — line-height 2.75rem */
+.startup-profit-eyebrow {
+    margin: 0;
+    line-height: 2.75rem;
+}
+
+/* .title .color-main .ft-48-b — line-height 4.25rem */
+.startup-profit-title {
+    margin: 0;
+    line-height: 4.25rem;
+}
+
+/* 메인 타이틀 하단 ~ 마키 상단: 5rem · 뷰포트 가로 풀 */
+.startup-profit-marquee {
+    margin-top: 5rem;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100vw;
+    opacity: 1;
+    transform: none;
+    isolation: isolate;
+}
+
+.startup-profit-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: startup-profit-marquee 50s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.startup-profit-marquee-group {
+    flex-shrink: 0;
+    gap: 1.875rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.startup-profit-marquee-item {
+    flex-shrink: 0;
+}
+
+/* 5번째 ~ 다음 1번째(루프 연결) 간격 1.875rem — 무한 루프 -50% 유지 */
+.startup-profit-marquee-item:last-child {
+    margin-right: 1.875rem;
+}
+
+.startup-profit-marquee-item img {
+    display: block;
+    width: clamp(10rem, 26vw, 24.6875rem);
+    height: auto;
+    aspect-ratio: 412 / 483;
+    object-fit: cover;
+}
+
+/* 무한 루프: 복제 세트 50% 이동 · translate3d — Android GPU 합성 */
+@keyframes startup-profit-marquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* 마키 하단 ~ 캡션: 2.5rem */
+.startup-profit-caption {
+    margin: 2.5rem 0 0;
+    line-height: 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .startup-profit-marquee-track {
+        animation: none;
+    }
+}
+
+/* =========================================
+   Startup Franchise Section (6th · Cards + CTA)
+========================================= */
+
+/* .py-130 .inner .bg-warm-white */
+.startup-franchise-section {
+    overflow: hidden;
+}
+
+/* .title .color-main .ft-48-b — line-height 3.875rem */
+.startup-franchise-title {
+    margin: 0;
+    line-height: 3.875rem;
+}
+
+/* 메인 타이틀 하단 ~ 카드 그룹: 5rem */
+.startup-franchise-cards {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: clamp(0.625rem, 1.5vw, 1.5rem);
+    margin-top: clamp(3rem, 5vw, 5rem);
+    width: 100%;
+}
+
+.startup-franchise-card {
+    box-sizing: border-box;
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    max-width: 29rem;
+    height: auto;
+    padding: clamp(2rem, 3.5vw, 3.75rem) clamp(1.125rem, 1.8vw, 1.75rem);
+    background-color: #FFFFFF;
+    border-radius: clamp(2rem, 3.5vw, 3.125rem);
+    overflow: visible;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (hover: hover) {
+    .startup-franchise-card:hover {
+        transform: translateY(-0.5rem);
+        box-shadow: 0 16px 40px rgba(76, 73, 72, 0.12);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .startup-franchise-card {
+        transition: none;
+    }
+
+    @media (hover: hover) {
+        .startup-franchise-card:hover {
+            transform: none;
+            box-shadow: none;
+        }
+    }
+}
+
+.startup-franchise-card-icon {
+    display: block;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    width: 5.625rem;  /* PC 기본 90px */
+    height: 5.625rem; /* PC 기본 90px */
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    object-fit: contain;
+    object-position: center;
+}
+
+.startup-franchise-card-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* .color-main — 1.75rem · 아이콘 하단 ~ 2.5rem */
+/* .ft-32-b .color-main */
+.startup-franchise-card-title {
+    margin: clamp(1.25rem, 2.5vw, 2.5rem) 0 0;
+    line-height: 2.25rem;
+    font-weight: 600;
+}
+
+/* .ft-20-r .color-main · 타이틀 하단 ~ 1.25rem */
+.startup-franchise-card-desc {
+    margin: clamp(0.625rem, 1.2vw, 1.25rem) 0 0;
+    line-height: 1.75rem;
+}
+
+/* 카드 그룹 하단 ~ 캡션: 1.25rem(20px) */
+.startup-franchise-action {
+    margin-top: 1.25rem;
+    width: 100%;
+}
+
+/* .ft-20-r .color-main */
+.startup-franchise-action-caption {
+    margin: 0;
+    line-height: 2rem;
+}
+
+/* =========================================
+   Responsive (Startup Page) · 1024 / 768 / 402
+   - common.css · font.css · smart-kiosk.css 패턴 참고
+   - .startup-page 스코프만
+========================================= */
+
+/* 노트북 (90rem 이하) */
+@media screen and (max-width: 1440px) {
+    .startup-page .inner {
+        max-width: none;
+        width: 100%;
+    }
+
+    /* Growth · 1440 구간 텍스트 겹침 방지: 수직 1단 */
+    .startup-page .startup-growth-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        min-height: 0;
+        grid-template-rows: auto;
+    }
+
+    .startup-page .startup-growth-copy {
+        position: relative;
+        grid-area: auto;
+        justify-self: stretch;
+        width: 100%;
+        max-width: 100%;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    .startup-page .startup-growth-title {
+        line-height: 3.5rem;
+    }
+
+    .startup-page .startup-growth-desc {
+        line-height: 1.75rem;
+    }
+
+    .startup-page .startup-growth-graphic {
+        position: relative;
+        grid-area: auto;
+        justify-self: stretch;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .startup-page .startup-growth-graphic img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Profit · 타이틀 line-height */
+    .startup-page .startup-profit-eyebrow {
+        line-height: 2.5rem;
+    }
+
+    .startup-page .startup-profit-title {
+        line-height: 3.75rem;
+    }
+
+    /* Franchise — 3열·비율은 하단 1440/1024 격리 블록에서 제어 */
+}
+
+/* 태블릿 (1024px 이하) */
+@media screen and (max-width: 1024px) {
+    /* KV — 태블릿 풀스크린 · 최소 778px */
+    .startup-page .startup-kv-section {
+        min-height: max(48.625rem, 100vh);
+        min-height: max(48.625rem, 100dvh);
+        height: 100vh;
+        height: 100dvh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .startup-page .startup-kv-inner {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .startup-page .startup-kv-title {
+        line-height: 3.25rem;
+    }
+
+    .startup-page .startup-kv-desc {
+        line-height: 1.75rem;
+    }
+
+    /* Feature · 수직 1단 */
+    .startup-page .startup-feature-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .startup-page .startup-feature-video-col,
+    .startup-page .startup-feature-text-col {
+        grid-column: auto;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .startup-page .startup-feature-video-player {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .startup-page .startup-feature-title {
+        line-height: 2.275rem;
+    }
+
+    .startup-page .startup-feature-item-title {
+        line-height: 2.025rem;
+    }
+
+    .startup-page .startup-feature-item-desc {
+        line-height: 1.75rem;
+    }
+
+    .startup-page .startup-feature-title,
+    .startup-page .startup-feature-list {
+        margin-left: 0;
+    }
+
+    /* Growth · 오버레이 해제 · 수직 스택 */
+    .startup-page .startup-growth-section {
+        overflow: hidden;
+    }
+
+    .startup-page .startup-growth-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        max-width: 100%;
+    }
+
+    .startup-page .startup-growth-copy,
+    .startup-page .startup-growth-graphic {
+        position: relative;
+        grid-area: auto;
+        justify-self: stretch;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .startup-page .startup-growth-copy {
+        z-index: 1;
+        max-width: 100%;
+        padding-right: 0;
+    }
+
+    .startup-page .startup-growth-title {
+        line-height: 3rem;
+    }
+
+    .startup-page .startup-growth-desc {
+        line-height: 1.75rem;
+    }
+
+    .startup-page .startup-growth-graphic {
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    .startup-page .startup-growth-graphic img {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: auto;
+    }
+
+    /* 말풍선 — 태블릿 (1rem · 정중앙·line-height 유지) */
+    .startup-page .startup-growth-bubble-box {
+        display: inline-grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .startup-page .startup-growth-bubble-text {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+
+    /* Profit */
+    .startup-page .startup-profit-eyebrow {
+        line-height: 2.375rem;
+    }
+
+    .startup-page .startup-profit-title {
+        line-height: 3.25rem;
+    }
+
+    .startup-page .startup-profit-marquee {
+        overflow: hidden;
+    }
+
+    .startup-page .startup-process-section .inner {
+        gap: 3rem;
+    }
+
+    .startup-page .startup-process-title {
+        line-height: 2.75rem;
+    }
+}
+
+/* 모바일 (768px 이하) */
+@media screen and (max-width: 768px) {
+    /* KV — 모바일 · 최소 778px · dvh 채움 */
+    .startup-page .startup-kv-section {
+        min-height: max(48.625rem, 100vh);
+        min-height: max(48.625rem, 100dvh);
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    .startup-page .startup-kv-title {
+        line-height: 2.625rem;
+    }
+
+    .startup-page .startup-kv-desc {
+        line-height: 1.625rem;
+    }
+
+    /* Feature */
+    .startup-page .startup-feature-grid {
+        gap: 2rem;
+    }
+
+    .startup-page .startup-feature-title {
+        line-height: 2.25rem;
+    }
+
+    .startup-page .startup-feature-item-title {
+        line-height: 2rem;
+    }
+
+    .startup-page .startup-feature-item-desc {
+        line-height: 1.5rem;
+    }
+
+    /* Growth */
+    .startup-page .startup-growth-layout {
+        gap: 1.75rem;
+    }
+
+    .startup-page .startup-growth-title {
+        line-height: 2.5rem;
+    }
+
+    .startup-page .startup-growth-desc {
+        line-height: 1.5rem;
+    }
+
+    .startup-page .startup-growth-graphic {
+        overflow: hidden;
+    }
+
+    .startup-page .startup-growth-graphic img {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: auto;
+    }
+
+    /* 말풍선 — 모바일 */
+    .startup-page .startup-growth-bubble-text {
+        font-size: 0.875rem;
+        line-height: 1.25;
+        padding: 0.24em 0.6em 0.45em;
+    }
+
+    /* Profit */
+    .startup-page .startup-profit-eyebrow {
+        line-height: 2rem;
+    }
+
+    .startup-page .startup-profit-title {
+        line-height: 2.5rem;
+    }
+
+    .startup-page .startup-profit-caption {
+        line-height: 1.5rem;
+    }
+
+    .startup-page .startup-profit-marquee {
+        margin-top: 3rem;
+    }
+
+    .startup-page .startup-profit-marquee-group {
+        gap: 1.25rem;
+    }
+
+    .startup-page .startup-profit-marquee-item:last-child {
+        margin-right: 1.25rem;
+    }
+
+    /* Franchise · Process — 768px 태블릿 가로 배열은 최하단 격리 블록 */
+    .startup-page .startup-franchise-title {
+        line-height: 2.5rem;
+    }
+
+    .startup-page .startup-franchise-action-caption {
+        line-height: 1.5rem;
+    }
+
+    .startup-page .startup-process-section .inner {
+        gap: 2.5rem;
+    }
+
+    .startup-page .startup-process-title {
+        line-height: 2.125rem;
+    }
+
+    /* Inquiry */
+    .startup-page .startup-inquiry-layout {
+        gap: 2.5rem;
+    }
+
+    .startup-page .startup-inquiry-title {
+        line-height: 2.125rem;
+    }
+
+    .startup-page .startup-inquiry-title-line {
+        white-space: normal;
+    }
+
+    .startup-page .startup-inquiry-contact {
+        gap: 1.25rem;
+    }
+
+    .startup-page .startup-inquiry-file-btn {
+        width: 100%;
+        max-width: 8.125rem;
+    }
+
+    .startup-page .startup-inquiry-submit {
+        width: 100%;
+        height: 3.5rem;
+    }
+}
+
+/* 소형 모바일 (402px 이하) — font.css 402 스케일 */
+@media screen and (max-width: 402px) {
+    .startup-page .startup-kv-title {
+        line-height: 2.125rem;
+    }
+
+    .startup-page .startup-kv-desc {
+        line-height: 1.6;
+    }
+
+    .startup-page .startup-feature-grid {
+        gap: 1.5rem;
+    }
+
+    .startup-page .startup-feature-title {
+        line-height: 1.95rem;
+    }
+
+    .startup-page .startup-feature-item-title {
+        line-height: 1.75rem;
+    }
+
+    .startup-page .startup-feature-item-desc {
+        line-height: 1.5rem;
+    }
+
+    .startup-page .startup-growth-title {
+        line-height: 2.125rem;
+    }
+
+    .startup-page .startup-growth-desc {
+        line-height: 1.5rem;
+    }
+
+    .startup-page .startup-profit-eyebrow {
+        line-height: 1.75rem;
+    }
+
+    .startup-page .startup-profit-title {
+        line-height: 2.125rem;
+    }
+
+    .startup-page .startup-franchise-title {
+        line-height: 2.125rem;
+    }
+
+    .startup-page .startup-franchise-card {
+        padding: 2rem 1.25rem;
+        border-radius: 2rem;
+    }
+
+    .startup-page .startup-franchise-card-title {
+        line-height: 1.95rem;
+    }
+
+    .startup-page .startup-franchise-card-desc {
+        line-height: 1.6;
+    }
+
+    .startup-page .startup-process-section .inner {
+        gap: 2rem;
+    }
+
+    .startup-page .startup-process-title {
+        line-height: 2.125rem;
+    }
+
+    .startup-page .startup-inquiry-title {
+        line-height: 2.125rem;
+    }
+
+    .startup-page .startup-inquiry-layout {
+        gap: 2rem;
+    }
+
+    .startup-page .startup-inquiry-input,
+    .startup-page .startup-inquiry-textarea,
+    .startup-page .startup-inquiry-file-name {
+        padding: 0.75rem 1rem;
+    }
+
+    .startup-page .startup-inquiry-file-btn {
+        max-width: 100%;
+        padding: 0.875rem 1rem;
+    }
+}
+
+/* =========================================
+   Startup Process Section (계약 프로세스)
+========================================= */
+
+/* .py-130 .bg-deep-base .inner .gap-80 */
+.startup-process-section {
+    overflow: hidden;
+}
+
+/* .title .ft-48-b — line-height 3.875rem · #FFFFFF · center */
+.startup-process-title {
+    margin: 0;
+    width: 100%;
+    line-height: 3.875rem;
+    color: #FFFFFF;
+    /* font-family: 'jalnan gothic ttf', sans-serif; */
+    /* font-size: 3rem; */
+}
+
+/* 6세트 가로 플렉스 · gap-20 */
+.startup-process-list {
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    /* display: flex; */
+    /* gap: 1.25rem; */
+}
+
+.startup-process-item {
+    flex: 1 1 0;
+    min-width: 0;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    gap: 1.25rem;
+}
+
+/* 163×163 원형 · point-orange · PC~태블릿(768)까지 vw+rem 유동 축소(상한은 초대형에서만 도달) */
+.startup-process-circle {
+    box-sizing: border-box;
+    width: clamp(3.75rem, 2rem + 5vw, 10.1875rem);
+    height: clamp(3.75rem, 2rem + 5vw, 10.1875rem);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* SVG — 원 안 정중앙 · contain */
+.startup-process-icon {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin: auto;
+}
+
+.startup-process-grid-item:nth-child(1) .startup-process-icon,
+.startup-process-item:nth-child(1) .startup-process-icon {
+    width: clamp(2.125rem, 1.25rem + 3.25vw, 6.25rem);
+    height: clamp(2.125rem, 1.25rem + 3.25vw, 6.25rem);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.startup-process-grid-item:nth-child(2) .startup-process-icon,
+.startup-process-item:nth-child(2) .startup-process-icon {
+    width: clamp(1.875rem, 1rem + 2.9vw, 5.625rem);
+    height: clamp(1.125rem, 0.65rem + 1.85vw, 3.625rem);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.startup-process-grid-item:nth-child(3) .startup-process-icon,
+.startup-process-item:nth-child(3) .startup-process-icon {
+    width: clamp(1.75rem, 1rem + 2.6vw, 5rem);
+    height: clamp(1.75rem, 1rem + 2.6vw, 5rem);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.startup-process-grid-item:nth-child(4) .startup-process-icon,
+.startup-process-grid-item:nth-child(5) .startup-process-icon,
+.startup-process-grid-item:nth-child(6) .startup-process-icon,
+.startup-process-item:nth-child(4) .startup-process-icon,
+.startup-process-item:nth-child(5) .startup-process-icon,
+.startup-process-item:nth-child(6) .startup-process-icon {
+    width: clamp(1.875rem, 1rem + 2.9vw, 5.625rem);
+    height: clamp(1.875rem, 1rem + 2.9vw, 5.625rem);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 캡션~본문 간격 0.625rem · 의도한 2줄(<br>)만 유지 */
+.startup-process-item-body {
+    width: max-content;
+    max-width: 100%;
+    align-self: center;
+    gap: 0.625rem;
+}
+
+/* ft-20-sb — #FFFFFF · line-height 2rem */
+.startup-process-item-title {
+    margin: 0;
+    width: 100%;
+    color: #FFFFFF;
+    /* font-family: 'Pretendard', sans-serif; */
+    /* font-size: 1.25rem; */
+    /* font-weight: 600; */
+    line-height: 2rem;
+}
+
+/* ft-18-r — #FFFFFF · line-height 1.75rem */
+.startup-process-item-desc {
+    margin: 0;
+    width: max-content;
+    max-width: none;
+    color: #FFFFFF;
+    line-height: 1.75rem;
+    white-space: nowrap;
+}
+
+/* =========================================
+   Startup Inquiry Section (제휴문의 · DB Form)
+========================================= */
+
+/* .py-130 .inner */
+.startup-inquiry-section {
+    overflow: hidden;
+}
+
+/* 좌 4 : 우 6.5 · gap 6.875rem */
+.startup-inquiry-layout {
+    align-items: flex-start;
+    gap: 6.875rem;
+}
+
+.startup-inquiry-info {
+    flex: 4 1 0;
+    min-width: 0;
+    text-align: left;
+    gap: 1.875rem;
+}
+
+/* .title .ft-48-b .color-main — line-height 3.875rem */
+.startup-inquiry-title {
+    margin: 0;
+    width: max-content;
+    max-width: 100%;
+    line-height: 3.875rem;
+}
+
+.startup-inquiry-title-line {
+    white-space: nowrap;
+}
+
+.startup-inquiry-contact {
+    gap: 1.875rem;
+}
+
+.startup-inquiry-email-row,
+.startup-inquiry-phone-row {
+    gap: 0.625rem;
+}
+
+.startup-inquiry-email,
+.startup-inquiry-phone {
+    margin: 0;
+    /* font-family: 'Pretendard', sans-serif; — font.css */
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2rem;
+    /* color: #4C4948; — .color-main */
+}
+
+.startup-inquiry-mail-icon {
+    display: block;
+    width: 1.25rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+.startup-inquiry-phone-icon {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
+
+.startup-inquiry-form {
+    box-sizing: border-box;
+    flex: 6.5 1 0;
+    width: 100%;
+    max-width: 49rem;
+    min-width: 0;
+}
+
+.startup-inquiry-form-row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+.startup-inquiry-field {
+    gap: 0.625rem;
+}
+
+.startup-inquiry-field + .startup-inquiry-field,
+.startup-inquiry-form-row + .startup-inquiry-field {
+    margin-top: 1.25rem;
+}
+
+.startup-inquiry-form-row > .startup-inquiry-field + .startup-inquiry-field {
+    margin-top: 0;
+}
+
+.startup-inquiry-field--half {
+    flex: 1 1 0%;
+    min-width: 0;
+}
+
+.startup-inquiry-label-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.startup-inquiry-label {
+    /* font-family: 'Pretendard', sans-serif; — font.css */
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2rem;
+    /* color: #4C4948; — .color-main */
+    text-align: left;
+}
+
+.startup-inquiry-field-error {
+    margin: 0;
+    /* font-family: 'Pretendard', sans-serif; — font.css */
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 2rem;
+    color: #E53935;
+}
+
+.startup-inquiry-field-error:empty {
+    display: none;
+}
+
+.startup-inquiry-input,
+.startup-inquiry-textarea,
+.startup-inquiry-file-name {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    border-radius: 0.3125rem;
+    background-color: #F6F6F6;
+    padding: 0.9375rem 1.5625rem;
+    /* font-family: 'Pretendard', sans-serif; — font.css */
+    font-size: 1.125rem;
+    line-height: 2rem;
+    color: #000000;
+    transition: border-color 0.2s ease;
+}
+
+.startup-inquiry-input:focus,
+.startup-inquiry-textarea:focus {
+    border-color: #D4734A;
+    outline: none;
+}
+
+.startup-inquiry-input::placeholder,
+.startup-inquiry-textarea::placeholder {
+    color: #000000;
+    opacity: 0.5;
+}
+
+.startup-inquiry-input--half {
+    width: 100%;
+    max-width: 100%;
+    height: 3.375rem;
+}
+
+.startup-inquiry-input--full {
+    width: 100%;
+    max-width: 100%;
+    height: 3.375rem;
+}
+
+.startup-inquiry-textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 12.625rem;
+    resize: none;
+}
+
+.startup-inquiry-file-row {
+    box-sizing: border-box;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+.startup-inquiry-file-name {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+    height: 3.375rem;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.startup-inquiry-file-btn {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 8.125rem;
+    height: 3.375rem;
+    padding: 1.25rem 1.875rem;
+    border: none;
+    border-radius: 1.25rem;
+    background-color: #4C4948;
+    /* font-family: 'Pretendard', sans-serif; — font.css */
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.startup-inquiry-agree-row {
+    margin-top: 1.25rem;
+    gap: 0.625rem;
+}
+
+.startup-inquiry-checkbox {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 1.625rem;
+    height: 1.625rem;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #D9D9D9;
+    outline: none;
+    border-radius: 0.3125rem;
+    background-color: #F6F6F6;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.startup-inquiry-checkbox:checked {
+    border-color: #D4734A;
+    background-color: #D4734A;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-width='2' d='M1 5l3.5 3.5L11 1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px 10px;
+}
+
+.startup-inquiry-checkbox:focus-visible {
+    border-color: #D4734A;
+}
+
+.startup-inquiry-agree-label {
+    /* font-family: 'Pretendard', sans-serif; — font.css */
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+    /* color: #4C4948; — .color-main */
+    cursor: pointer;
+}
+
+.startup-inquiry-submit {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.5rem;
+    width: 100%;
+    max-width: 100%;
+    height: 4.5rem;
+    padding: 0;
+    border: none;
+    border-radius: 1.25rem;
+    /* font-family: 'Pretendard', sans-serif; — font.css */
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1;
+    color: #FFFFFF;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+/* =========================================
+   Startup Fade-Up (KV · Feature · Growth)
+========================================= */
+
+.startup-page .startup-fade-up,
+.contact-page .startup-fade-up {
+    opacity: 0;
+    transform: translateY(1.875rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.startup-page .startup-fade-up.is-fade-active,
+.contact-page .startup-fade-up.is-fade-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .startup-page .startup-fade-up,
+    .contact-page .startup-fade-up {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        will-change: auto;
+    }
+}
+
+/* =========================================
+   Responsive Overrides — Fluid Inquiry · Franchise · Process · Growth
+   (협업 Lock · common.css 미수정 · 1440 / 1024 / 768 / 430 격리)
+========================================= */
+
+/* [1] 제휴문의 — 노트북 (1440px) */
+@media screen and (max-width: 1440px) {
+    .startup-page .startup-franchise-card-title {
+        line-height: 1.35;
+    }
+
+    .startup-page .startup-franchise-card-desc {
+        line-height: 1.5;
+    }
+
+    /* 제휴문의 — 1440 그리드~ · 줄바꿈 · 유동 축소 · 좌(메인) 우(폼) 1화면 */
+    .startup-page .startup-inquiry-layout {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        gap: clamp(1.5rem, 4.5vw, 6.875rem);
+    }
+
+    .startup-page .startup-inquiry-info {
+        flex: 0 1 clamp(12rem, 36%, 28rem);
+        min-width: 0;
+        max-width: clamp(12rem, 36%, 28rem);
+    }
+
+    .startup-page .startup-inquiry-title {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .startup-page .startup-inquiry-title-line {
+        white-space: normal;
+    }
+
+    .startup-page .startup-inquiry-contact {
+        gap: clamp(1rem, 2vw, 1.875rem);
+    }
+
+    .startup-page .startup-inquiry-email,
+    .startup-page .startup-inquiry-phone {
+        word-break: break-all;
+    }
+
+    .startup-page .startup-inquiry-form {
+        flex: 1 1 0;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 49rem;
+        min-width: 0;
+    }
+
+    .startup-page .startup-inquiry-form-row {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    }
+
+    .startup-page .startup-inquiry-form-row > .startup-inquiry-field--half,
+    .startup-page .startup-inquiry-field--half {
+        flex: 1 1 0%;
+        min-width: 0;
+    }
+
+    .startup-page .startup-inquiry-input--half,
+    .startup-page .startup-inquiry-input--full,
+    .startup-page .startup-inquiry-textarea,
+    .startup-page .startup-inquiry-file-row,
+    .startup-page .startup-inquiry-submit {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .startup-page .startup-inquiry-input--half,
+    .startup-page .startup-inquiry-input--full,
+    .startup-page .startup-inquiry-file-name {
+        height: clamp(2.75rem, 4vw, 3.375rem);
+        padding: clamp(0.625rem, 1.2vw, 0.9375rem) clamp(0.75rem, 1.8vw, 1.5625rem);
+    }
+
+    .startup-page .startup-inquiry-textarea {
+        height: clamp(8rem, 22vw, 12.625rem);
+        padding: clamp(0.625rem, 1.2vw, 0.9375rem) clamp(0.75rem, 1.8vw, 1.5625rem);
+    }
+
+    .startup-page .startup-inquiry-file-btn {
+        width: clamp(6.5rem, 12vw, 8.125rem);
+        height: clamp(2.75rem, 4vw, 3.375rem);
+        padding: clamp(0.75rem, 1.5vw, 1.25rem) clamp(1rem, 2vw, 1.875rem);
+    }
+
+    .startup-page .startup-inquiry-submit {
+        height: clamp(3.25rem, 5vw, 4.5rem);
+    }
+}
+
+/* [1] 제휴문의 — 태블릿 (1024px) */
+@media screen and (max-width: 1024px) {
+    .startup-page .startup-franchise-card-title {
+        line-height: 1.35;
+    }
+
+    .startup-page .startup-franchise-card-desc {
+        line-height: 1.5;
+    }
+
+    /* 제휴문의 — 1024 이하 1단 전환 방지 · 줄바꿈·유동 축소 유지 */
+    .startup-page .startup-inquiry-layout {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        gap: clamp(1.25rem, 3.5vw, 3rem);
+    }
+
+    .startup-page .startup-inquiry-info {
+        flex: 0 1 clamp(10rem, 34%, 24rem);
+        min-width: 0;
+        max-width: clamp(10rem, 34%, 24rem);
+    }
+
+    .startup-page .startup-inquiry-title {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .startup-page .startup-inquiry-title-line {
+        white-space: normal;
+    }
+
+    .startup-page .startup-inquiry-form {
+        flex: 1 1 0;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 49rem;
+        min-width: 0;
+    }
+
+    .startup-page .startup-inquiry-input--half {
+        width: 100%;
+        max-width: none;
+        padding: clamp(0.625rem, 2vw, 0.9375rem) clamp(0.75rem, 3vw, 1.5625rem);
+    }
+
+    .startup-page .startup-inquiry-input--full,
+    .startup-page .startup-inquiry-textarea,
+    .startup-page .startup-inquiry-file-row,
+    .startup-page .startup-inquiry-submit {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* [3] 태블릿/모바일 (768px) — 제휴문의 1단 */
+@media screen and (max-width: 768px) {
+    .startup-page .startup-inquiry-input--half {
+        width: 100%;
+        max-width: none;
+        padding: clamp(0.625rem, 2vw, 0.9375rem) clamp(0.75rem, 3vw, 1.25rem);
+    }
+
+    .startup-page .startup-inquiry-label-row {
+        flex-wrap: wrap;
+    }
+
+    /* 제휴문의 — 모바일: 세로 1단(가독성) · 폼 내부 이름/연락처 1줄 유지 */
+    .startup-page .startup-inquiry-layout {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .startup-page .startup-inquiry-info {
+        flex: 1 1 auto;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .startup-page .startup-inquiry-title {
+        line-height: 2.125rem;
+    }
+
+    .startup-page .startup-inquiry-title-line {
+        white-space: normal;
+    }
+
+    .startup-page .startup-inquiry-form {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+/* 초소형 모바일 (430px) — 가맹 카드 */
+@media screen and (max-width: 430px) {
+    .startup-page .startup-franchise-card {
+        padding: clamp(1.25rem, 4vw, 2rem) clamp(0.875rem, 3vw, 1.25rem);
+        border-radius: 2rem;
+    }
+}
+
+/* 파일 첨부 — 웹 접근성 (visually-hidden · label 커서) */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.startup-inquiry-file-btn {
+    cursor: pointer;
+}
+
+.startup-brand-video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-top: 0;
+}
+
+/* =========================================
+   font.css 반응형 동기화 (line-height)
+========================================= */
+
+@media screen and (max-width: 1024px) {
+    /* font.css 1024 스케일 — line-height */
+    .startup-page .startup-kv-title {
+        line-height: 1.25;
+    }
+
+    .startup-page .startup-kv-desc,
+    .startup-page .startup-growth-desc,
+    .startup-page .startup-profit-caption,
+    .startup-page .startup-franchise-card-desc,
+    .startup-page .startup-franchise-action-caption {
+        line-height: 1.6;
+    }
+
+    .startup-page .startup-growth-title,
+    .startup-page .startup-profit-title,
+    .startup-page .startup-franchise-title,
+    .startup-page .startup-process-title,
+    .startup-page .startup-inquiry-title {
+        line-height: 1.25;
+    }
+
+    .startup-page .startup-feature-title,
+    .startup-page .startup-profit-eyebrow,
+    .startup-page .startup-franchise-card-title {
+        line-height: 1.3;
+    }
+
+    .startup-page .startup-feature-item-title {
+        line-height: 1.35;
+    }
+
+    .startup-page .startup-feature-item-desc,
+    .startup-page .startup-process-item-desc {
+        line-height: 1.5;
+    }
+
+    .startup-page .startup-process-item-title {
+        line-height: 1.6;
+    }
+
+    .startup-page .startup-inquiry-label,
+    .startup-page .startup-inquiry-email,
+    .startup-page .startup-inquiry-phone {
+        font-size: 1.125rem;
+        line-height: 1.6;
+    }
+
+    .startup-page .startup-inquiry-input,
+    .startup-page .startup-inquiry-textarea,
+    .startup-page .startup-inquiry-file-name,
+    .startup-page .startup-inquiry-file-btn,
+    .startup-page .startup-inquiry-submit,
+    .startup-page .startup-inquiry-agree-label {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .startup-page .startup-inquiry-field-error {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* font.css 768 스케일 — line-height */
+    .startup-page .startup-kv-title {
+        line-height: 1.2;
+    }
+
+    .startup-page .startup-kv-desc,
+    .startup-page .startup-growth-desc,
+    .startup-page .startup-profit-caption,
+    .startup-page .startup-franchise-card-desc,
+    .startup-page .startup-franchise-action-caption,
+    .startup-page .startup-process-item-title {
+        line-height: 1.6;
+    }
+
+    .startup-page .startup-growth-title,
+    .startup-page .startup-profit-title,
+    .startup-page .startup-franchise-title,
+    .startup-page .startup-process-title,
+    .startup-page .startup-inquiry-title {
+        line-height: 1.25;
+    }
+
+    .startup-page .startup-feature-title,
+    .startup-page .startup-profit-eyebrow,
+    .startup-page .startup-franchise-card-title {
+        line-height: 1.3;
+    }
+
+    .startup-page .startup-feature-item-title {
+        line-height: 1.4;
+    }
+
+    .startup-page .startup-feature-item-desc,
+    .startup-page .startup-process-item-desc {
+        line-height: 1.5;
+    }
+
+    .startup-page .startup-inquiry-label,
+    .startup-page .startup-inquiry-email,
+    .startup-page .startup-inquiry-phone,
+    .startup-page .startup-inquiry-agree-label {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .startup-page .startup-inquiry-input,
+    .startup-page .startup-inquiry-textarea,
+    .startup-page .startup-inquiry-file-name,
+    .startup-page .startup-inquiry-file-btn,
+    .startup-page .startup-inquiry-submit {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .startup-page .startup-inquiry-field-error {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+}
+
+/* =========================================
+   태블릿 768px 표준 — 가맹 3열 · 프로세스 3×2 (577px~ · 최하단 격리)
+========================================= */
+@media screen and (min-width: 577px) {
+    /* 계약 프로세스 — 3×2 */
+    .startup-page .startup-process-grid-list,
+    .startup-page .startup-process-list {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 24px;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .startup-page .startup-process-grid-item,
+    .startup-page .startup-process-item {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        width: calc(33.333% - 16px);
+        max-width: calc(33.333% - 16px);
+        min-width: 0;
+    }
+
+    .startup-page .startup-process-grid-item .startup-process-item-body,
+    .startup-page .startup-process-item .startup-process-item-body {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .startup-page .startup-process-grid-item .startup-process-item-desc,
+    .startup-page .startup-process-item .startup-process-item-desc {
+        white-space: normal;
+    }
+}
+
+/* 모바일(576px 이하) — 가맹 · 프로세스 수직 1열 전환 */
+@media screen and (max-width: 576px) {
+    .startup-page .startup-franchise-cards {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        gap: 1.25rem;
+        margin-top: 3rem;
+    }
+
+    .startup-page .startup-franchise-card {
+        width: 100%;
+        max-width: 100%;
+        flex: 1 1 auto;
+        padding: clamp(2rem, 6vw, 3rem) clamp(1rem, 4vw, 1.5rem);
+    }
+
+    /* 계약 프로세스 — 모바일 2열 × 3행 */
+    .startup-page .startup-process-grid-list,
+    .startup-page .startup-process-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1.5rem 1rem;
+        width: 100%;
+    }
+
+    .startup-page .startup-process-grid-item,
+    .startup-page .startup-process-item {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        width: calc(50% - 0.5rem);
+        max-width: calc(50% - 0.5rem);
+        min-width: 0;
+        gap: 0.75rem;
+    }
+
+    .startup-page .startup-process-item-body {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .startup-page .startup-process-item-title {
+        font-size: 0.875rem;
+        line-height: 1.35;
+    }
+
+    .startup-page .startup-process-item-desc {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.75rem;
+        line-height: 1.5;
+        white-space: normal;
+    }
+}
+
+/* 가맹 경쟁력 — 카드 행 풀폭 · 섹션 좌우 패딩 0 · 카드만 16px 마진 */
+.startup-page .startup-franchise-section > .inner {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.startup-page .startup-franchise-section .startup-franchise-title,
+.startup-page .startup-franchise-section .startup-franchise-action {
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+}
+
+.startup-page .startup-franchise-action {
+    margin-top: 1.25rem;
+}
+
+.startup-page .startup-franchise-cards {
+    box-sizing: border-box;
+    width: calc(100% - 32px);
+    max-width: none;
+    margin-left: 16px;
+    margin-right: 16px;
+    align-items: stretch;
+}
+
+.startup-page .startup-franchise-card {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    align-self: stretch;
+}
+
+/* 가맹 경쟁력 — 아이콘 PC 최대 90px(5.625rem) · normalize img { max-width:100% } 무시 */
+.startup-page .startup-franchise-card-icon {
+    width: 5.625rem;
+    height: 5.625rem;
+    max-width: 5.625rem;
+    max-height: 5.625rem;
+    flex-shrink: 0;
+}
+
+/* PC(90px) 기준 → 점점 줄어드는 단계형 반응형 */
+@media screen and (max-width: 1024px) {
+    .startup-page .startup-franchise-card-icon {
+        width: clamp(3.25rem, 4.5vw + 0.5rem, 4.5rem);  /* ~72px */
+        height: clamp(3.25rem, 4.5vw + 0.5rem, 4.5rem);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .startup-page .startup-franchise-card-icon {
+        width: clamp(2.75rem, 5vw + 0.25rem, 3.75rem);  /* ~60px */
+        height: clamp(2.75rem, 5vw + 0.25rem, 3.75rem);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .startup-page .startup-franchise-card-icon {
+        width: clamp(2.25rem, 6vw + 0.125rem, 3.125rem); /* ~50px */
+        height: clamp(2.25rem, 6vw + 0.125rem, 3.125rem);
+    }
+}
+
+@media screen and (max-width: 402px) {
+    .startup-page .startup-franchise-card-icon {
+        width: clamp(2rem, 7.5vw, 2.75rem); /* ~44px */
+        height: clamp(2rem, 7.5vw, 2.75rem);
+    }
+}
+
+@media screen and (min-width: 577px) {
+    .startup-page .startup-franchise-cards {
+        flex-wrap: nowrap;
+        gap: clamp(0.625rem, 1.2vw, 1.5rem);
+    }
+}
+
+/* KV — 모바일 타이포 · 767px 이하 (줄바꿈 br.mo-only/pc-only는 common.css) */
+@media screen and (max-width: 767px) {
+    .startup-page .startup-kv-copy {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .startup-page .startup-kv-title,
+    .startup-page .startup-kv-desc {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .startup-page .startup-kv-title {
+        font-size: 2rem;
+        line-height: 1.25;
+    }
+
+    .startup-page .startup-kv-desc {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+/* KV — 320px 최하단 */
+@media screen and (max-width: 320px) {
+    .startup-page .startup-kv-title {
+        font-size: 1.75rem;
+    }
+
+    .startup-page .startup-kv-desc {
+        font-size: 0.875rem;
+    }
+}
+
+/* 가맹 3카드 — 태블릿(577~1024px) 타이포 */
+@media screen and (min-width: 577px) and (max-width: 1024px) {
+    .startup-page .startup-franchise-card-title {
+        font-size: 1rem;
+        line-height: 1.35;
+    }
+
+    .startup-page .startup-franchise-card-desc {
+        font-size: 0.75rem;
+        line-height: 1.5;
+    }
+}
+
+/* Profit 캡션 — 모바일 한 줄 · 컨테이너 가로 채움 · margin-top 20px(1.25rem) */
+@media screen and (max-width: 767px) {
+    .startup-page .startup-profit-caption {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 1.25rem;
+        font-size: clamp(0.875rem, 3.8vw, 1.125rem);
+        line-height: 1.4;
+    }
+}
